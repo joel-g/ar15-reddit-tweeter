@@ -26,10 +26,7 @@ def authenticate_reddit():
 def get_reddit_posts(reddit):
   print("Fetching new posts...")
   time.sleep(1)
-  posts = []
-  for post in reddit.subreddit('azure').hot(limit=12):
-    #if "reddit.com" in post.url:
-    posts.append(post)
+  posts = reddit.subreddit('ar15').hot(limit=12):
   print("Returning " + str(len(posts)) + " reddit posts")
   return posts
     
@@ -54,7 +51,7 @@ def is_tweeted(submission_id):
     return False
 
 def tweet(twitter, submission):
-  print("Tweeting...")
+  print("Tweeting an AR-15 tweet...")
   try:
     twitter.update_status(submission.title + " " + submission.url)
     record_already_tweeted(submission.id)
