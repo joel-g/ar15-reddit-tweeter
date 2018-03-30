@@ -70,8 +70,8 @@ def main():
     for post in get_reddit_posts(reddit):
       if not is_tweeted(post.id):
         tweet(twitter, post)
-        print("Sleeping 3 hours...\n\n")
-        time.sleep(14400)
+        print("Sleeping 5 hours...\n\n")
+        time.sleep(18000)
         break
 
 if __name__ == '__main__':
