@@ -55,7 +55,7 @@ def is_tweeted(submission_id):
 def tweet(twitter, submission):
   print("Tweeting an AR-15...")
   try:
-    twitter.update_status(submission.title + " " + submission.url)
+    twitter.update_status(submission.title + " http://reddit.com" + submission.permalink)
     record_already_tweeted(submission.id)
     print("Tweeted!\n")
   except:
