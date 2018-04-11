@@ -53,7 +53,7 @@ def is_tweeted(submission_id):
       return False
 
 def tweet(twitter, submission):
-  print("Tweeting about " + submission.subreddit)
+  print("Tweeting about " + submission.subreddit.display_name)
   try:
     twitter.update_status(submission.title + " http://reddit.com" + submission.permalink)
     record_already_tweeted(submission.id)
