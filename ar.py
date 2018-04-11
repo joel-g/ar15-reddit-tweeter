@@ -27,7 +27,7 @@ def get_reddit_posts(reddit):
   print("Fetching new posts...")
   time.sleep(1)
   posts = []
-  for post in reddit.subreddit('ar15').hot(limit=12):
+  for post in reddit.subreddit('ar15+ak47+guns+firearms').hot(limit=12):
     posts.append(post)
   print("Returning " + str(len(posts)) + " reddit posts")
   return posts
@@ -42,18 +42,18 @@ def record_already_tweeted(submission_id):
 def is_tweeted(submission_id):
   print("Checking to see if this has already been tweeted...")
   time.sleep(1)
-  readable = open("tweeted.txt", "r")
-  if submission_id in readable.read().splitlines():
-    print("It has been tweeted.\n")
-    time.sleep(1)
-    return True
-  else:
-    print("It has not been tweeted.\n")
-    time.sleep(1)
-    return False
+  with open("tweeted.txt", "r") as readable:
+    if submission_id in readable.read().splitlines():
+      print("It has been tweeted.\n")
+      time.sleep(1)
+      return True
+    else:
+      print("It has not been tweeted.\n")
+      time.sleep(1)
+      return False
 
 def tweet(twitter, submission):
-  print("Tweeting an AR-15...")
+  print("Tweeting about " + submission.subreddit)
   try:
     twitter.update_status(submission.title + " http://reddit.com" + submission.permalink)
     record_already_tweeted(submission.id)
