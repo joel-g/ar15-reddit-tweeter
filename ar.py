@@ -64,16 +64,16 @@ def tweet(twitter, submission):
   time.sleep(2)
   
 def get_gun_tweets(twitter):
-  glock_tweets = twitter.search(q="glock", count=50, lang="en")
-  kalashnikov_tweets = twitter.search(q="kalashnikov", count=25, lang="en")
-  beretta_tweets = twitter.search(q="beretta", count=25, lang="en")
-  saiga_tweets = twitter.search(q="saiga", count=15, lang="en")
-  wasr_tweets = twitter.search(q="wasr", count=25, lang="en")
-  ninemm_tweets = twitter.search(q="9mmm", count=50, lang="en")
-  creedmor_tweets = twitter.search(q="creedmor", count=15, lang="en")
-  smith_tweets = twitter.search(q="s&w", count=50, lang="en")
-  ar_tweets = twitter.search(q="ar-10", count=50, lang="en")
-  colt_tweets = twitter.search(q="colt", count=50, lang="en")
+  glock_tweets = twitter.search(q="glock", count=10, lang="en")
+  kalashnikov_tweets = twitter.search(q="kalashnikov", count=10, lang="en")
+  beretta_tweets = twitter.search(q="beretta", count=10, lang="en")
+  saiga_tweets = twitter.search(q="saiga", count=10, lang="en")
+  wasr_tweets = twitter.search(q="wasr", count=10, lang="en")
+  ninemm_tweets = twitter.search(q="9mmm", count=10, lang="en")
+  creedmor_tweets = twitter.search(q="creedmor", count=10, lang="en")
+  smith_tweets = twitter.search(q="s&w", count=10, lang="en")
+  ar_tweets = twitter.search(q="ar-10", count=10, lang="en")
+  colt_tweets = twitter.search(q="colt", count=10, lang="en")
   print("Returning gun tweets")
   return glock_tweets + kalashnikov_tweets + beretta_tweets + saiga_tweets + wasr_tweets + ninemm_tweets + creedmor_tweets + smith_tweets + ar_tweets + colt_tweets
 
