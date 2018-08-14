@@ -107,7 +107,7 @@ def unfollow_old(twitter, x):
   follows_ids.reverse()
   for i in range(0,x-1):
     twitter.destroy_friendship(follows_ids[i])
-    print(i+1)
+    print(i+1, end="")
     time.sleep(90)
 
 def main():
@@ -118,7 +118,7 @@ def main():
       if not is_tweeted(post.id):
         tweet(twitter, post)
         new_followed = follow_users(get_user_ids(get_gun_tweets(twitter)), twitter)
-        unfollow_old(twitter, 50)
+        unfollow_old(twitter, new_followed)
         print("Sleeping 3 hours...\n\n")
         time.sleep(10800)
 
