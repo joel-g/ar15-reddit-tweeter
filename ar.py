@@ -65,20 +65,20 @@ def tweet(twitter, submission):
   
 def get_gun_tweets(twitter):
   print("Fetching gun tweets")
-  glock_tweets = twitter.search(q="#2a", count=100, lang="en")
-  time.sleep(2)
-  kalashnikov_tweets = twitter.search(q="#progun", count=100, lang="en")
-  time.sleep(2)
-  beretta_tweets = twitter.search(q="#gunrights", count=100, lang="en")
-  time.sleep(2)
-  saiga_tweets = twitter.search(q="#2adefenders", count=100, lang="en")
-  time.sleep(2)
-  wasr_tweets = twitter.search(q="#liberty", count=100, lang="en")
-  time.sleep(2)
-  ninemm_tweets = twitter.search(q="#2ndamendment", count=100, lang="en")
-  time.sleep(2)
-  creedmor_tweets = twitter.search(q="#secondamendment", count=100, lang="en")
-  time.sleep(2)
+  glock_tweets = twitter.search(q="#2a", count=10, lang="en")
+  time.sleep(10)
+  kalashnikov_tweets = twitter.search(q="#progun", count=10, lang="en")
+  time.sleep(10)
+  beretta_tweets = twitter.search(q="#gunrights", count=10, lang="en")
+  time.sleep(10)
+  saiga_tweets = twitter.search(q="#2adefenders", count=10, lang="en")
+  time.sleep(10)
+  wasr_tweets = twitter.search(q="#liberty", count=10, lang="en")
+  time.sleep(10)
+  ninemm_tweets = twitter.search(q="#2ndamendment", count=10, lang="en")
+  time.sleep(10)
+  creedmor_tweets = twitter.search(q="#secondamendment", count=10, lang="en")
+  time.sleep(10)
   print("Returning gun tweets")
   return glock_tweets + kalashnikov_tweets + beretta_tweets + saiga_tweets + wasr_tweets + ninemm_tweets + creedmor_tweets
 
@@ -107,8 +107,8 @@ def unfollow_old(twitter, x):
   follows_ids.reverse()
   for i in range(0,x-1):
     twitter.destroy_friendship(follows_ids[i])
-    print(i+1, end="")
-    time.sleep(90)
+    print(i+1)
+    time.sleep(180)
 
 def main():
   reddit = authenticate_reddit()
@@ -118,7 +118,7 @@ def main():
       if not is_tweeted(post.id):
         tweet(twitter, post)
         new_followed = follow_users(get_user_ids(get_gun_tweets(twitter)), twitter)
-        unfollow_old(twitter, new_followed)
+        unfollow_old(twitter, new_followed-10)
         print("Sleeping 3 hours...\n\n")
         time.sleep(10800)
 
